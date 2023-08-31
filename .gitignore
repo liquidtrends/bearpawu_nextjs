@@ -7,6 +7,7 @@
 !/.yarn/releases
 !/.yarn/plugins
 !/.yarn/sdks
+node_modules
 
 # testing
 /coverage
