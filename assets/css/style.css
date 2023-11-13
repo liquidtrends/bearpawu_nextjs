@@ -18,9 +18,10 @@ a {
   }
 
   .contentBlock li a {
-    @apply list-disc;
-    @apply text-blue-800;
-    @apply ml-10
+    @apply list-none;
+    @apply text-white;
+    @apply bg-rose-800
+    @apply p-4
   }
 
   .contentBlock h1 {
