@@ -48,7 +48,6 @@ const Article = ({ article }) => {
       ) : null}
       <div className="bg-[url('/block-header.png')] bg-no-repeat bg-center bg-cover">
         <div className="md:w-1/2 w-full m-auto space-y-8 text-center py-20">
-          <h1 className="text-5xl font-bold uppercase text-[#FFEFDC]">{article.attributes.title}</h1>
           <p className="text-white text-xl">{article.attributes.description}</p>
         </div>
       </div>
