@@ -106,7 +106,7 @@ const Article = ({ article }) => {
               {Quiz && (
                 <Quiz quiz={getAllQuiz()} />
               )}
-              <div className="back-to-home">
+              <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
               <a href="/"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Back to BearPaw U
               </button></a>
