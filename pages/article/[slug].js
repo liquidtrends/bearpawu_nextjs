@@ -61,7 +61,7 @@ const Article = ({ article }) => {
               {article.attributes.contentBlocks &&
                 article.attributes.contentBlocks.map((block, index) => (
                   <div key={index} className="mt-12 space-y-4">
-                  <hr />
+                  {index > 0 && <hr />}
                     <h2 className="text-3xl font-bold text-gray-900">
                       {block.sectionTitle}
                     </h2>
