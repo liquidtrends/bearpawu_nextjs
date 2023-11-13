@@ -50,7 +50,7 @@ const Article = ({ article }) => {
       <div className="bg-[url('/block-header.png')] bg-no-repeat bg-center bg-cover">
         <div className="md:w-1/2 w-full m-auto space-y-8 text-center py-20">
           <h1 className="text-5xl font-bold uppercase text-[#FFEFDC]">{article.attributes.title}</h1>
-          <p className="text-white">{article.attributes.description}</p>
+          <p className="text-white text-xl">{article.attributes.description}</p>
         </div>
       </div>
       <div className="bg-white py-16">
@@ -61,8 +61,8 @@ const Article = ({ article }) => {
               {article.attributes.contentBlocks &&
                 article.attributes.contentBlocks.map((block, index) => (
                   <div key={index} className="mt-12 space-y-4">
-                  {index > 0 && <hr />}
-                    <h2 className="text-3xl font-bold text-gray-900">
+                  <hr />
+                    <h2 className="text-4xl font-bold text-gray-900">
                       {block.sectionTitle}
                     </h2>
                     {block.sectionImages && (
@@ -93,7 +93,7 @@ const Article = ({ article }) => {
                           </div>
                           <div>
                             <h2 className="text-xl font-bold text-gray-900">{block.tipTitle}</h2>
-                            <p class="text-sm">{block.tipText}</p>
+                            <p class="text-lg">{block.tipText}</p>
                           </div>
                         </div>
                       </div>
