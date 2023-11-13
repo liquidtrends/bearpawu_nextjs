@@ -17,10 +17,10 @@ a {
     @apply ml-10
   }
 
-  .contentBlock li:not(:first-child) > a {
-    @apply list-none;
+  .contentBlock li > a {
+    @apply list-none!important;
     @apply bg-blue-300 hover:bg-blue-500 hover:text-white;
-    @apply m-2 p-3;
+    @apply m-2 p-3!important;
     @apply rounded-lg;
     @apply shadow-md hover:shadow-lg;
     @apply transform hover:scale-105 transition-all duration-300;
