@@ -59,7 +59,8 @@ const Article = ({ article }) => {
               <ReactMarkdown className="text-lg" children={article.attributes.content} />
               {article.attributes.contentBlocks &&
                 article.attributes.contentBlocks.map((block, index) => {
-                  const sectionId = block.sectionTitle.toLowerCase().replace(/\s+/g, '-');
+                  // Check if block.sectionTitle is not null or undefined
+                  const sectionId = block.sectionTitle ? block.sectionTitle.toLowerCase().replace(/\s+/g, '-') : '';
 
                   return (
                     <div key={index} id={sectionId} className="mt-12 space-y-4">
