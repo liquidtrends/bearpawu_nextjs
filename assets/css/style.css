@@ -21,7 +21,6 @@ a {
     @apply list-none;
     @apply text-white;
     @apply bg-rose-800
-    @apply p-4
   }
 
   .contentBlock h1 {
