@@ -17,6 +17,12 @@ a {
     @apply ml-10
   }
 
+  .contentBlock li a {
+    @apply list-disc;
+    @apply text-blue-800;
+    @apply ml-10
+  }
+
   .contentBlock h1 {
     @apply text-2xl
   }
