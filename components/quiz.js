@@ -49,7 +49,7 @@ const Quiz = ({ quiz }) => {
     }
 
     if (!quiz[currentQuestion].Answers[selectedAnswer].Correct) {
-      setAlertMessage("Incorrect answer");
+      setAlertMessage("Incorrect answer. Try again!");
       setAlertType("error");
       setShowAlert(true);
       return;
@@ -100,17 +100,23 @@ const Quiz = ({ quiz }) => {
               onClick={() => setSelectedAnswer(index)}
             >
               {answer.Answer}{" "}
-              <svg
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-c1sh5i"
-                focusable="false"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                width={28}
-                height={28}
-                fill="white"
-              >
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4 8-8z"></path>
-              </svg>
+              {selectedAnswer === index ? (
+                <div className="rounded-full w-6 h-6 flex items-center justify-center">
+                  <svg
+                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge css-c1sh5i"
+                    focusable="false"
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    width={28}
+                    height={28}
+                    fill="white"
+                  >
+
+                  </svg>
+                </div>
+              ) : (
+                ""
+              )}
             </li>
           ))}
         </ul>
@@ -136,6 +142,7 @@ const Quiz = ({ quiz }) => {
             Congratulations!
           </h1>
           <p>You have completed the quiz</p>
+          <a href="/"><button className="mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Back to BearPaw U</button></a>
         </div>
       )}
       {!gameFinished && renderQuiz()}
