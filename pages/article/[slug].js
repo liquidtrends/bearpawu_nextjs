@@ -27,12 +27,11 @@ const Article = ({ article }) => {
     return article.attributes.contentBlocks.filter((block) => block.Question);
   };
 
-
   return (
     <Layout>
-    <ProgressIndicator />
-    <Seo seo={seo} />
-      <div className="">
+      <ProgressIndicator />
+      <Seo seo={seo} />
+      <div className="" id="">
         <div className="h-[500px] bg-no-repeat bg-top bg-cover md:bg-cover md:h-[500px] flex flex-col items-center justify-center" style={{backgroundImage: `url(${headerImageUrl})`}}>
           <h1 className="text-5xl text-red-800 uppercase font-bold w-1/2 text-center">{article.attributes.title}</h1>
           <p className="text-2xl w-1/2 pt-8 text-center"></p>
@@ -59,51 +58,54 @@ const Article = ({ article }) => {
             <div className="mt-10 space-y-8 ">
               <ReactMarkdown className="text-lg" children={article.attributes.content} />
               {article.attributes.contentBlocks &&
-                article.attributes.contentBlocks.map((block, index) => (
-                  <div key={index} className="mt-12 space-y-4">
-                  <hr />
-                    <h2 className="text-4xl font-bold text-gray-900">
-                      {block.sectionTitle}
-                    </h2>
-                    {block.sectionImages && (
-                      <img
-                        className="pt-10 w-full"
-                        src={getStrapiMedia(block.sectionImages)}
-                      />
-                    )}
-                    <ReactMarkdown
-                      className="contentBlock text-lg space-y-8"
-                      children={block.sectionContent}
-                    />
-                    {block.sectionVideo && block.sectionVideo.url && (
-                      <div>
-                        <video
-                          className="pt-10 w-full"
-                          controls
-                          src={getStrapiMedia(block.sectionVideo)}
-                        />
-                      </div>
-                    )}
+                article.attributes.contentBlocks.map((block, index) => {
+                  const sectionId = block.sectionTitle.toLowerCase().replace(/\s+/g, '-');
 
-                    {block.tipTitle && block.tipText && block.tipImage && (
-                      <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
-                        <div class="flex">
-                          <div class="py-1 w-1/2">
-                            <img className="w-full pr-2" src={getStrapiMedia(block.tipImage)} />
-                          </div>
-                          <div>
-                            <h2 className="text-xl font-bold text-gray-900">{block.tipTitle}</h2>
-                            <p class="text-lg">{block.tipText}</p>
+                  return (
+                    <div key={index} id={sectionId} className="mt-12 space-y-4">
+                      {index > 0 && <hr />} {/* Conditionally render the <hr /> */}
+                      <h2 className="text-4xl font-bold text-gray-900">
+                        {block.sectionTitle}
+                      </h2>
+                      {block.sectionImages && (
+                        <img
+                          className="pt-10 w-full"
+                          src={getStrapiMedia(block.sectionImages)}
+                        />
+                      )}
+                      <ReactMarkdown
+                        className="contentBlock text-lg space-y-8"
+                        children={block.sectionContent}
+                      />
+                      {block.sectionVideo && block.sectionVideo.url && (
+                        <div>
+                          <video
+                            className="pt-10 w-full"
+                            controls
+                            src={getStrapiMedia(block.sectionVideo)}
+                          />
+                        </div>
+                      )}
+
+                      {block.tipTitle && block.tipText && block.tipImage && (
+                        <div className="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                          <div className="flex">
+                            <div className="py-1 w-1/2">
+                              <img className="w-full pr-2" src={getStrapiMedia(block.tipImage)} />
+                            </div>
+                            <div>
+                              <h2 className="text-xl font-bold text-gray-900">{block.tipTitle}</h2>
+                              <p className="text-lg">{block.tipText}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    )}
-
-                  </div>
-                ))}
-                {Quiz && (
-                  <Quiz quiz={getAllQuiz()} />
-                )}
+                      )}
+                    </div>
+                  );
+                })}
+              {Quiz && (
+                <Quiz quiz={getAllQuiz()} />
+              )}
             </div>
           </div>
         </div>
