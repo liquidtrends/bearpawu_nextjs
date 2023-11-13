@@ -19,8 +19,11 @@ a {
 
   .contentBlock li a {
     @apply list-none;
-    @apply text-white;
-    @apply bg-rose-800
+    @apply bg-blue-300 hover:bg-blue-500 hover:text-white;
+    @apply m-2 p-3;
+    @apply rounded-lg;
+    @apply shadow-md hover:shadow-lg;
+    @apply transform hover:scale-105 transition-all duration-300;
   }
 
   .contentBlock h1 {
